@@ -29,6 +29,15 @@ impl CellState for RockPaperScissor {
             *self
         }
     }
+
+    #[cfg(feature = "auto-coloring")]
+    fn color(&self) -> Option<Color> {
+        Some(match self {
+            Self::Rock => Color::Srgba(BLUE),
+            Self::Paper => Color::Srgba(BEIGE),
+            Self::Scissor => Color::Srgba(RED),
+        })
+    }
 }
 
 fn main() {
